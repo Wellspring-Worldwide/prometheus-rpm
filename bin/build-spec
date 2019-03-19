@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+set -x
+
+SPEC=$1
+
+yum-builddep -y ${SPEC}
+spectool -g -R ${SPEC}
+rpmbuild -ba ${SPEC}
+
