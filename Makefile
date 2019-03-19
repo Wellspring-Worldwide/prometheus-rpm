@@ -12,7 +12,8 @@ rabbitmq_exporter \
 pushgateway \
 sachet \
 statsd_exporter \
-ping_exporter 
+ping_exporter \
+thanos
 
 .PHONY: $(PACKAGES7)
 
@@ -40,6 +41,7 @@ $(AUTO_GENERATED): build_image
 	# Build for centos 7
 	docker run -it --rm \
 		-v ${PWD}/$@:/rpmbuild/SOURCES \
+                -v ${PWD}/_dist7:/rpmbuild/SRPMS \
 		-v ${PWD}/_dist7:/rpmbuild/RPMS/x86_64 \
 		-v ${PWD}/_dist7:/rpmbuild/RPMS/noarch \
 		build_centos7_rpm \
@@ -55,6 +57,7 @@ $(PACKAGES7): build_image
 		-v ${PWD}/$@:/rpmbuild/SOURCES \
 		-v ${PWD}/_dist7:/rpmbuild/RPMS/x86_64 \
 		-v ${PWD}/_dist7:/rpmbuild/RPMS/noarch \
+                -v ${PWD}/_dist7:/rpmbuild/SRPMS \
 		build_centos7_rpm \
 		/bin/build-spec SOURCES/$@.spec
 
