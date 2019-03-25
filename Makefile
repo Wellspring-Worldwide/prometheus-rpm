@@ -14,6 +14,8 @@ sachet \
 statsd_exporter \
 ping_exporter \
 logstash_exporter \
+zookeeper_exporter \
+openvpn_exporter \
 thanos
 
 .PHONY: $(PACKAGES7)
@@ -38,7 +40,7 @@ build_image:
 	docker build -t build_centos7_rpm .
 
 $(AUTO_GENERATED): build_image
-	python3 ./generate.py --templates $@
+	python ./generate.py --templates $@
 	# Build for centos 7
 	docker run -it --rm \
 		-v ${PWD}/$@:/rpmbuild/SOURCES \

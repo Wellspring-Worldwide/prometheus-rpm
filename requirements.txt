@@ -1,3 +1,3 @@
-jinja2
-pyyaml
-deepmerge
+Jinja2==2.10
+MarkupSafe==1.1.1
+PyYAML==5.1

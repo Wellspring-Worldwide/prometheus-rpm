@@ -8,3 +8,4 @@ secret.asc
 autogen_*
 Makefile_*
 /.idea/
+/.*env/

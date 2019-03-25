@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python2
 
 '''
 This script generates spec, unit and init files for CentOS build_filess.
