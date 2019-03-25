@@ -1,0 +1,15 @@
+# -*- mode: conf -*-
+
+[Unit]
+Description=Prometheus exporter for Logstash server metrics
+Documentation=https://github.com/BonnierNews/logstash_exporter
+After=network.target
+
+[Service]
+EnvironmentFile=-/etc/default/logstash_exporter
+User=prometheus
+ExecStart=/usr/bin/logstash_exporter $OPTIONS
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

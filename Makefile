@@ -13,6 +13,7 @@ pushgateway \
 sachet \
 statsd_exporter \
 ping_exporter \
+logstash_exporter \
 thanos
 
 .PHONY: $(PACKAGES7)
