@@ -16,6 +16,7 @@ ping_exporter \
 logstash_exporter \
 zookeeper_exporter \
 openvpn_exporter \
+nginx \
 thanos
 
 .PHONY: $(PACKAGES7)

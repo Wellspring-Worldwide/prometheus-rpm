@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER Sergey Nartimov <just.lest@gmail.com>
 
-RUN yum install -y rpm-build rpm-sign redhat-rpm-config rpmdevtools createrepo make git && \
+RUN yum install -y rpm-build rpm-sign redhat-rpm-config rpmdevtools createrepo make git redhat-lsb-core gcc && \
   yum clean all
 RUN echo '%_topdir /rpmbuild' > /root/.rpmmacros
 
@@ -14,4 +14,3 @@ ENV PATH="/usr/local/go/bin:${PATH}"
 WORKDIR /rpmbuild
 
 ADD bin/build-spec /bin/build-spec
-
