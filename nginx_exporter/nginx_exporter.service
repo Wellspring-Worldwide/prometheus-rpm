@@ -1,0 +1,15 @@
+# -*- mode: conf -*-
+
+[Unit]
+Description=Prometheus exporter for NGINX server metrics
+Documentation=https://github.com/hnlq715/nginx-vts-exporter
+After=network.target
+
+[Service]
+EnvironmentFile=-/etc/default/nginx_exporter
+User=prometheus
+ExecStart=/usr/bin/nginx_exporter -nginx.scrape_uri=http://%H/status/format/json $OPTIONS
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
