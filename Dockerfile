@@ -1,7 +1,7 @@
 FROM centos:7
 MAINTAINER Sergey Nartimov <just.lest@gmail.com>
 
-RUN yum install -y rpm-build rpm-sign redhat-rpm-config rpmdevtools createrepo make git redhat-lsb-core gcc && \
+RUN yum install -y rpm-build rpm-sign redhat-rpm-config rpmdevtools createrepo make git redhat-lsb-core gcc pam-devel && \
   yum clean all
 RUN echo '%_topdir /rpmbuild' > /root/.rpmmacros
 
